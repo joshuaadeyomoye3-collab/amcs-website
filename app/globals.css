@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 250 250 247;
+  --foreground: 20 33 15;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-feature-settings: "liga" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-tight transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-green text-white shadow-soft hover:bg-brand-green-dark hover:shadow-card;
+  }
+
+  .btn-gold {
+    @apply btn bg-brand-gold text-brand-green-dark shadow-glow hover:bg-brand-gold-dark hover:text-white;
+  }
+
+  .btn-outline {
+    @apply btn border border-brand-green/30 bg-white/60 text-brand-green hover:border-brand-green hover:bg-white;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-green/15 bg-brand-green/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-green;
+  }
+
+  .section {
+    @apply py-20 sm:py-24;
+  }
+
+  .heading-xl {
+    @apply font-heading text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl;
+  }
+
+  .heading-lg {
+    @apply font-heading text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl;
+  }
+
+  .card {
+    @apply rounded-2xl border border-brand-green/10 bg-white p-7 shadow-soft transition-all duration-300;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-brand-green/15 bg-brand-cream px-4 py-3 text-sm text-foreground placeholder:text-foreground/40 transition-colors focus:border-brand-green focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-green/20;
+  }
+}
+
+/* Subtle dotted texture used on hero / banner backgrounds */
+.bg-dots {
+  background-image: radial-gradient(rgba(26, 107, 47, 0.12) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.bg-dots-light {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
