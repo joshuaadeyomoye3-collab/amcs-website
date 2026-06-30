@@ -1,24 +1,14 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
+// Self-hosted fonts (bundled at build time — no network fetch, so builds never
+// fail on a flaky Google Fonts request). The CSS variables they expose are
+// defined in globals.css and mapped in tailwind.config.ts.
+import "@fontsource-variable/plus-jakarta-sans";
+import "@fontsource-variable/dm-sans";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Toaster } from "@/components/ui/sonner";
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-jakarta",
-  weight: ["500", "600", "700", "800"],
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-dm-sans",
-  weight: ["400", "500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -50,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} ${dmSans.variable}`}>
+    <html lang="en">
       <body className="font-body antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>
